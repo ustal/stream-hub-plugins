@@ -1,0 +1,36 @@
+deptrac:
+  paths:
+    - ./src
+    - ./tests
+
+  layers:
+    - name: Plugins
+      collectors:
+        - type: classLike
+          value: ^Ustal\\StreamHub\\Plugins\\(?!Tests\\)
+
+    - name: Tests
+      collectors:
+        - type: classLike
+          value: ^Ustal\\StreamHub\\Plugins\\Tests\\
+
+    - name: Core
+      collectors:
+        - type: classLike
+          value: ^Ustal\\StreamHub\\(Component|Core)\\
+
+    - name: External
+      collectors:
+        - type: classLike
+          value: ^(PHPUnit\\|Psr\\)
+
+  ruleset:
+    Plugins:
+      - Core
+
+    Tests:
+      - Plugins
+      - Core
+      - External
+
+    Core: ~

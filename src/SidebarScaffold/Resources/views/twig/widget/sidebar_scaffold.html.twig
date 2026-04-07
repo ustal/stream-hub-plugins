@@ -1,0 +1,11 @@
+<section class="stream-hub-sidebar-scaffold">
+    <div class="stream-hub-sidebar-scaffold__section stream-hub-sidebar-scaffold__section--filter">
+        {{ render_slot(enum('Ustal\\StreamHub\\Plugins\\SidebarScaffold\\Enum\\SidebarScaffoldSlot').FILTER, runtime, context) }}
+    </div>
+    <div class="stream-hub-sidebar-scaffold__section stream-hub-sidebar-scaffold__section--search">
+        {{ render_slot(enum('Ustal\\StreamHub\\Plugins\\SidebarScaffold\\Enum\\SidebarScaffoldSlot').SEARCH, runtime, context) }}
+    </div>
+    <div class="stream-hub-sidebar-scaffold__section stream-hub-sidebar-scaffold__section--list">
+        {{ render_slot(enum('Ustal\\StreamHub\\Plugins\\SidebarScaffold\\Enum\\SidebarScaffoldSlot').LIST, runtime, context) }}
+    </div>
+</section>

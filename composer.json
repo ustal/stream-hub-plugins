@@ -1,0 +1,31 @@
+{
+  "name": "ustal/stream-hub-plugins",
+  "description": "Starter plugin pack for Stream Hub",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": "^8.2",
+    "ustal/stream-hub-core": "^0.3.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0",
+    "deptrac/deptrac": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ustal\\StreamHub\\Plugins\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ustal\\StreamHub\\Plugins\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "stan": "echo 'phpstan is not configured yet'",
+    "deptrac": "deptrac analyse"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

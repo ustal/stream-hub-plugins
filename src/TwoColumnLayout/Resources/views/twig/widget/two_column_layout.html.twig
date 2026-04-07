@@ -1,0 +1,16 @@
+<div class="stream-hub-layout stream-hub-layout--two-column" data-stream-hub-two-column-layout>
+    <aside
+        class="stream-hub-layout__column stream-hub-layout__column--left"
+        data-role="left"
+    >
+        {{ render_slot(enum('Ustal\\StreamHub\\Plugins\\TwoColumnLayout\\Enum\\TwoColumnLayoutSlot').LEFT, runtime, context) }}
+    </aside>
+    <div
+        class="stream-hub-layout__divider"
+        data-role="divider"
+        aria-hidden="true"
+    ></div>
+    <section class="stream-hub-layout__column stream-hub-layout__column--right">
+        {{ render_slot(enum('Ustal\\StreamHub\\Plugins\\TwoColumnLayout\\Enum\\TwoColumnLayoutSlot').RIGHT, runtime, context) }}
+    </section>
+</div>

@@ -1,0 +1,11 @@
+<section class="stream-hub-dialog-scaffold">
+    <header class="stream-hub-dialog-scaffold__section stream-hub-dialog-scaffold__section--top">
+        {{ render_slot(enum('Ustal\\StreamHub\\Plugins\\DialogScaffold\\Enum\\DialogScaffoldSlot').TOP, runtime, context) }}
+    </header>
+    <div class="stream-hub-dialog-scaffold__section stream-hub-dialog-scaffold__section--middle">
+        {{ render_slot(enum('Ustal\\StreamHub\\Plugins\\DialogScaffold\\Enum\\DialogScaffoldSlot').MIDDLE, runtime, context) }}
+    </div>
+    <footer class="stream-hub-dialog-scaffold__section stream-hub-dialog-scaffold__section--bottom">
+        {{ render_slot(enum('Ustal\\StreamHub\\Plugins\\DialogScaffold\\Enum\\DialogScaffoldSlot').BOTTOM, runtime, context) }}
+    </footer>
+</section>
