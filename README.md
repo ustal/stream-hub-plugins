@@ -1,5 +1,7 @@
 # stream-hub-plugins
 
+[![CI](https://github.com/ustal/stream-hub-plugins/actions/workflows/ci.yml/badge.svg)](https://github.com/ustal/stream-hub-plugins/actions/workflows/ci.yml)
+
 Starter plugin pack for the Stream Hub ecosystem.
 
 Each plugin is intended to be self-contained: one plugin root folder should hold its classes, resources, templates, and assets so it can be moved into a standalone repository later with minimal reshuffling.
