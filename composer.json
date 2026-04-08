@@ -1,11 +1,11 @@
 {
   "name": "ustal/stream-hub-plugins",
-  "description": "Starter plugin pack for Stream Hub",
+  "description": "Framework-agnostic feature modules for Stream Hub",
   "type": "library",
   "license": "MIT",
   "require": {
     "php": "^8.2",
-    "ustal/stream-hub-core": "^0.3.0"
+    "ustal/stream-hub-core": "^1.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^10.0",

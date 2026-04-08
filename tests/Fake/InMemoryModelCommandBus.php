@@ -10,10 +10,13 @@ final class InMemoryModelCommandBus implements ModelCommandBusInterface
 {
     public ?StreamCommandInterface $lastCommand = null;
     public ?StreamContextInterface $lastContext = null;
+    /** @var list<StreamCommandInterface> */
+    public array $commands = [];
 
     public function handle(StreamCommandInterface $command, StreamContextInterface $context): void
     {
         $this->lastCommand = $command;
         $this->lastContext = $context;
+        $this->commands[] = $command;
     }
 }
