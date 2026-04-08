@@ -1,6 +1,6 @@
 {
   "name": "ustal/stream-hub-plugins",
-  "description": "Starter plugin pack for Stream Hub",
+  "description": "Framework-agnostic feature modules for Stream Hub",
   "type": "library",
   "license": "MIT",
   "require": {

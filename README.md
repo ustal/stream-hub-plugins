@@ -6,7 +6,7 @@ Framework-agnostic feature modules for Stream Hub.
 
 In the `v1` direction this repository is no longer a UI plugin pack. It now holds headless modules made of commands, handlers, and small workflow services.
 
-## Included Module
+## Included Modules
 
 ### `MessageComposer`
 
@@ -23,6 +23,29 @@ The handler:
 - does not talk to the backend directly.
 
 The module expects an event identifier generator to be injected by the consuming integration.
+
+### `StreamLifecycle`
+
+Current contents:
+
+- `StartStreamCommand`
+- `StartStreamCommandHandler`
+- `JoinStreamCommand`
+- `JoinStreamCommandHandler`
+- `LeaveStreamCommand`
+- `LeaveStreamCommandHandler`
+- `LifecycleSystemEventFactory`
+
+The handler:
+
+- orchestrates low-level `CreateStreamCommand`;
+- appends an initial system event through low-level `AppendStreamEventCommand`;
+- dispatches low-level `JoinStreamCommand` for join scenarios;
+- appends a system event when a participant leaves;
+- dispatches low-level `LeaveStreamCommand` to update the participant model;
+- stays storage-agnostic and does not talk to the backend directly.
+
+The module expects a system event identifier generator to be injected by the consuming integration.
 
 ## Development
 

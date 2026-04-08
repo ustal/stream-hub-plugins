@@ -21,16 +21,6 @@ final class InMemoryContext implements StreamContextInterface
         return null;
     }
 
-    public function generateUrl(string $name, array $parameters = []): string
-    {
-        return '/' . ltrim($name, '/');
-    }
-
-    public function getCsrfToken(string $intention): ?string
-    {
-        return 'csrf-' . $intention;
-    }
-
     public function has(string $key): bool
     {
         return array_key_exists($key, $this->values);
