@@ -53,6 +53,30 @@ This plugin attaches to the right side of `TwoColumnLayoutPlugin` and provides t
 
 It is also a scaffold, intended to host project-specific dialog title, message stream, and input widgets.
 
+### `MessageComposerPlugin`
+
+This plugin is opt-in. It attaches to `dialog.bottom` by default and renders a message form widget intended for project-level controller integration.
+
+It includes:
+
+- `SendMessageCommand`
+- `SendMessageCommandHandler`
+- `MessageEventFactory`
+- `MessageComposerWidget`
+
+The widget expects the consuming application to provide at least these stream-context values:
+
+- `stream_hub.message_composer.stream_id`
+- `stream_hub.message_composer.action_url`
+
+Optional context keys can override placeholder, submit label, field names, and CSRF intention.
+
+It also declares one named identifier generator requirement:
+
+- `event_id`
+
+The consuming integration is expected to map that requirement explicitly. In the Symfony bundle this is done under `stream_hub.id_generators.message-composer.event_id`.
+
 ## Template Overrides
 
 Widgets in this package declare their default templates statically, but project-level overrides are supported through `WidgetTemplateResolverInterface` from `stream-hub-core`.
@@ -66,6 +90,8 @@ The official Symfony bundle currently treats these three plugins as the default 
 - `TwoColumnLayoutPlugin`
 - `SidebarScaffoldPlugin`
 - `DialogScaffoldPlugin`
+
+`MessageComposerPlugin` is intentionally not enabled by default because it requires application-level form handling and request/controller integration.
 
 ## Development
 
