@@ -6,6 +6,8 @@ Framework-agnostic feature modules for Stream Hub.
 
 In the `v1` direction this repository is no longer a UI plugin pack. It now holds headless modules made of commands, handlers, and small workflow services.
 
+This package targets `stream-hub-core ^1.0`.
+
 ## Included Modules
 
 ### `MessageComposer`
