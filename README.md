@@ -40,14 +40,20 @@ Current contents:
 
 The handler:
 
+- accepts a high-level `StartStreamCommand` without prebuilt participant models;
+- resolves the current participant from `StreamContextInterface`;
+- builds `StreamParticipant` models internally;
 - orchestrates low-level `CreateStreamCommand`;
 - appends an initial system event through low-level `AppendStreamEventCommand`;
+- may append an optional first user message as part of the same high-level start flow;
+- can generate a `streamId` internally when a stream id generator is configured;
 - dispatches low-level `JoinStreamCommand` for join scenarios;
 - appends a system event when a participant leaves;
 - dispatches low-level `LeaveStreamCommand` to update the participant model;
 - stays storage-agnostic and does not talk to the backend directly.
 
 The module expects a system event identifier generator to be injected by the consuming integration.
+An optional stream id generator may also be injected for `StartStreamCommandHandler`.
 
 ## Development
 

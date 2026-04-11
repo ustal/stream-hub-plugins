@@ -8,7 +8,6 @@ use Ustal\StreamHub\Component\Identifier\IdentifierGeneratorInterface;
 use Ustal\StreamHub\Component\Model\StreamEvent;
 use Ustal\StreamHub\Component\Model\StreamParticipant;
 use Ustal\StreamHub\Plugins\StreamLifecycle\Command\LeaveStreamCommand;
-use Ustal\StreamHub\Plugins\StreamLifecycle\Command\StartStreamCommand;
 
 final readonly class LifecycleSystemEventFactory
 {
@@ -16,14 +15,29 @@ final readonly class LifecycleSystemEventFactory
     {
     }
 
-    public function createStreamStartedEvent(StartStreamCommand $command, StreamContextInterface $context): StreamEvent
+    /**
+     * @param StreamParticipant[] $participants
+     */
+    public function createStreamStartedEvent(string $streamId, array $participants, StreamContextInterface $context): StreamEvent
     {
         return new StreamEvent(
             id: $this->eventIdGenerator->generate(),
-            streamId: $command->streamId,
+            streamId: $streamId,
             userId: $context->getUserId(),
             type: StreamEventType::SYSTEM,
-            content: sprintf('%s started the conversation.', $this->resolveInitiatorName($command->participants, $context)),
+            content: sprintf('%s started the conversation.', $this->resolveInitiatorName($participants, $context)),
+            createdAt: new \DateTimeImmutable(),
+        );
+    }
+
+    public function createInitialMessageEvent(string $streamId, string $content, StreamContextInterface $context): StreamEvent
+    {
+        return new StreamEvent(
+            id: $this->eventIdGenerator->generate(),
+            streamId: $streamId,
+            userId: $context->getUserId(),
+            type: StreamEventType::MESSAGE,
+            content: trim($content),
             createdAt: new \DateTimeImmutable(),
         );
     }
