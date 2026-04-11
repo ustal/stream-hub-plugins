@@ -5,7 +5,7 @@
   "license": "MIT",
   "require": {
     "php": "^8.2",
-    "ustal/stream-hub-core": "^1.0"
+    "ustal/stream-hub-core": "v1.x-dev"
   },
   "require-dev": {
     "phpunit/phpunit": "^10.0",
@@ -27,5 +27,10 @@
     "deptrac": "deptrac analyse"
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "extra": {
+    "branch-alias": {
+      "dev-v1": "1.1.x-dev"
+    }
+  }
 }
